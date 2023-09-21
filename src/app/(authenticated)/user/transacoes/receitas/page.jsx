@@ -1,6 +1,6 @@
 import Header from "@/components/Header"
 import TransactionModal from "@/components/transacoes/TransactionModal"
-
+import AddTransactionButton from "@/components/transacoes/AddTransactionButton"
 const Receitas = () => {
     return (
       <>
@@ -8,7 +8,9 @@ const Receitas = () => {
         <div>Receitas</div>
         <div className="m-10">
           <TransactionModal />
+          <AddTransactionButton />
         </div>
+
       </>
     )
   }
