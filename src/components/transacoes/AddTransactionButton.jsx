@@ -21,7 +21,8 @@ const AddTransactionButton = () => {
             <button onClick={() => setShowModal(true)} className="w-[80px] h-[80px] bg-logo rounded-full flex justify-center items-center">
                 <Add size="64" color="#FFFFFF"/>
             </button>
-            {showModal && <ModalTeste />}
+            
+            <ModalTeste />
         </div>
 
     )
