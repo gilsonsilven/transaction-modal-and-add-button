@@ -87,16 +87,16 @@ const TransactionModal = ({isOpen, changeOpen}) => {
 
                 <div className='w-[500px] h-[80px] flex flex-col justify-start gap-4 mb-10'>
                     <div className='flex'>
-                        <input className=' w-[16px] h-[16px] checkBoxTeste' type="checkbox" name="everyday" />
+                        <input className=' w-[16px] h-[16px] checkBoxTeste' type="checkbox" name="everyday"/>
                         <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todos os dias</label>
                     </div>
                     <div className='flex'>
-                        <input className=' w-[16px] h-[16px]' type="checkbox" name="everyday" />
+                        <input className=' w-[16px] h-[16px] border-rose-600' type="checkbox" name="everyday" />
                         <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todos os dias</label>
                     </div>
                     <div>
                         <input type="checkbox" name="everyday" id='cb1' />
-                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`} for="cb2">Todos os dias</label>
+                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`} for="cb1">Todos os dias</label>
                     </div>
                 </div>
 
