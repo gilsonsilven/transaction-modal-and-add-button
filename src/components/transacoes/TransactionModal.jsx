@@ -1,12 +1,14 @@
 'use client'
 
-import { Hind, Inter }from 'next/font/google'
+import { Hind, Inter, Roboto }from 'next/font/google'
 import {
     ArrowDown2,
     ArrowUp2,
-    Calendar
+    Calendar,
+    Stop,
+    TickSquare
 } from 'iconsax-react'
-
+import styles from './checkBoxStyle.css'
 // acertar espaçamento
 // checar se a fonte está certa
 // checkbox list, como essa checkbox list funciona?
@@ -20,6 +22,8 @@ import {
 // fazer com que o modal desapareça quando o usuário clicar em qualquer lugar
 
 
+// transformar checkbox em componentes
+
 const hindTituloModal = Hind(
     {
         weight: '500',
@@ -31,6 +35,13 @@ const interTextButton = Inter(
     {
         weight: '500',
         subsets: ['latin'],
+    }
+)
+
+const robotoTextCheckboxOp = Roboto(
+    {
+        weight: '400',
+        subsets: ['latin']
     }
 )
 
@@ -75,17 +86,17 @@ const TransactionModal = ({isOpen, changeOpen}) => {
                 </div>
 
                 <div className='w-[500px] h-[80px] flex flex-col justify-start gap-4 mb-10'>
-                    <div>
-                        <input type="checkbox" name="everyday" />
-                        <label>Todos os dias</label>
+                    <div className='flex'>
+                        <input className=' w-[16px] h-[16px] checkBoxTeste' type="checkbox" name="everyday" />
+                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todos os dias</label>
+                    </div>
+                    <div className='flex'>
+                        <input className=' w-[16px] h-[16px]' type="checkbox" name="everyday" />
+                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todos os dias</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="everyday" />
-                        <label>Todos os dias</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="everyday" />
-                        <label>Todos os dias</label>
+                        <input type="checkbox" name="everyday" id='cb1' />
+                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`} for="cb2">Todos os dias</label>
                     </div>
                 </div>
 
