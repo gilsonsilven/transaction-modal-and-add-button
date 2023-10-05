@@ -1,3 +1,4 @@
+/**
 input[id="cb1"] + label {
     display: inline-block;
     width: 14px;
@@ -17,3 +18,4 @@ input[id="cb1"] + label {
   input[id="cb1"] {
     display: none;
   }
+  */
