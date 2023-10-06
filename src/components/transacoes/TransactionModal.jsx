@@ -9,6 +9,7 @@ import {
     TickSquare
 } from 'iconsax-react'
 import './checkBoxStyle.css'
+import './teste.css'
 // acertar espaçamento
 // checar se a fonte está certa
 // checkbox list, como essa checkbox list funciona?
@@ -86,13 +87,13 @@ const TransactionModal = ({isOpen, changeOpen}) => {
                 </div>
 
                 <div className='w-[500px] h-[80px] flex flex-col justify-start gap-4 mb-10'>
-                    <div className='flex'>
-                        <input className='appearance-none indeterminate:bg-gray-300 checked:bg-blue-500 border border-black rouder-3xl w-[16px] h-[16px] accent-red-500 content-["\002714"]' type="checkbox" name="everyday"/>
+                    <div className='checkbox-container'>
+                        <input className='' type="checkbox" name="everyday"/>
                         <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todos os dias</label>
                     </div>
                     <div className='flex items-center'>
-                        <input type="checkbox" name="everyday" className='cursor-pointer opacity-0 absolute checked:content-["\\002714"] checked:flex checked:bg-black checked:justify-center checked:items-center checked:text-black'/>
-                        <label className={`${robotoTextCheckboxOp.className} before:content-[""] before:w-[14px] before:h-[14px] before:rounded-sm before:border before:border-black flex text-[14px] text-secondary-500 ml-5`}>Todos os dias</label>
+                        <input type="checkbox" name="everyday" className={`cursor-pointer opacity-0 absolute checked:content-['11111'] checked:flex checked:bg-white checked:justify-center checked:items-center checked:text-black`}/>
+                        <label className={`${robotoTextCheckboxOp.className} flex before:content-[''] before:w-[14px] before:h-[14px] before:rounded-sm before:border before:border-black flex text-[14px] text-secondary-500`}>Todos os dias</label>
                     </div>
                     <div id="checkbox-container">
                         <input type="checkbox" name="everyday" className=""/>
