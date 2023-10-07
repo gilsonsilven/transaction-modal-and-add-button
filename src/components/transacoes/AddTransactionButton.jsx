@@ -19,7 +19,7 @@ const AddTransactionButton = () => {
                 <Add size="64" color="#FFFFFF"/>
             </button>
 
-            <TransactionModal isOpen={showModal} changeOpen={setShowModal}/>            
+            <TransactionModal modalIsOpen={showModal} changeModalIsOpen={setShowModal}/>            
         </div>
 
     )
