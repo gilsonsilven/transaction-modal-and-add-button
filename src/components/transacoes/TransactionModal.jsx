@@ -1,6 +1,6 @@
 'use client'
 
-import { Hind, Inter, Roboto }from 'next/font/google'
+import { Hind, Inter, Roboto } from 'next/font/google'
 import {
     ArrowDown2,
     ArrowUp2,
@@ -8,6 +8,7 @@ import {
     Stop,
     TickSquare
 } from 'iconsax-react'
+import { useState } from 'react'
 
 import './checkBoxStyle.css'
 
@@ -18,11 +19,13 @@ import './checkBoxStyle.css'
 // perguntar o que fazer na parte de categorias
 // acertar formatação valor (olhar como é feito organizze)
 // os tamanhos estão certos?
+// ajustar formatação do modal todo
 
 // tem aquele botão ainda
 // integração botão - modal
 // fazer com que o modal desapareça quando o usuário clicar em qualquer lugar
 
+// da pra diminuir o tamanho do modal baseado no state do checkboxdropdown menu
 
 // transformar checkbox em componentes
 
@@ -42,16 +45,16 @@ const interTextButton = Inter(
 
 const robotoTextCheckboxOp = Roboto(
     {
-        weight: '500',
+        weight: '400',
         subsets: ['latin']
     }
 )
 
-const CheckBoxOptions = () => {
+const CheckBoxOptions = ({showCheckBox}) => {
 
     return (
 
-        <div className='w-[500px] h-[80px] flex flex-col justify-start gap-4 mb-10'>
+        <div className={`w-[500px] h-[80px] flex flex-col justify-start gap-4 mb-10 ${showCheckBox ? 'flex' : 'hidden'}`}>
             <div className='checkbox-container'>
                 <input className='' type="checkbox" name="everyday"/>
                 <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500`} />
@@ -73,6 +76,12 @@ const CheckBoxOptions = () => {
 }
 
 const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
+
+    const [checkBoxDropDownOptions, setCheckBoxDropDownOptions] = useState(false)
+
+    const checkBoxDropDown = () => {
+        setCheckBoxDropDownOptions(!checkBoxDropDownOptions)
+    }    
 
     if(!modalIsOpen) {
         return null;
@@ -106,10 +115,12 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
                 </div>
 
                 <div className='w-[500px] h-[55px] mt-[8px] flex'>
-                    <div className='flex justify-start items-center gap-3'>
+                    <div onClick={checkBoxDropDown} className='flex justify-start items-center gap-3 cursor-pointer'>
                         <Calendar size="28px" color="#000334"/>
                         <p className={`text-secondary-500 text-xl font-normal ${hindTituloModal.className}`}>Repetir receita</p>
-                        <ArrowDown2 />
+                        {
+                            checkBoxDropDownOptions ? <ArrowDown2 /> : <ArrowUp2 />
+                        }
                     </div>
                     
                     <div className='flex relative justify-end items-end'>
@@ -124,7 +135,7 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
                     </div>              
                 </div>
 
-                <CheckBoxOptions />
+                <CheckBoxOptions showCheckBox={checkBoxDropDownOptions}/>
 
                 <div className="w-[507px] h-10 justify-between items-center inline-flex">
                     <div className="w-[184px] h-10 px-8 py-[7px] bg-[#E8EEF4] rounded-[5px] justify-center items-center gap-2.5 flex cursor-pointer" onClick={() => changeModalIsOpen(false)}>
