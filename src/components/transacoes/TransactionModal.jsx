@@ -12,6 +12,11 @@ import { useState } from 'react'
 
 import './checkBoxStyle.css'
 
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import 'dayjs/locale/pt-br';
+
 // acertar espaçamento
 // checar se a fonte está certa
 // checkbox list, como essa checkbox list funciona?
@@ -124,12 +129,16 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
                 </div>
 
                 <div className="w-[500px] mt-[26px] justify-between items-end inline-flex">
-                    <div className="w-[328px] h-[38px] border rounded border-slate-700 flex justify-between items-center">
+                    <div className="w-[328px] h-[40px] border rounded border-slate-700 flex justify-between items-center">
                         <p className="ml-1 p-[5px]">Categoria</p>
                         <ArrowDown2 size="20px"/>
                     </div>                
-                    <div className="w-[150px] h-[38px] border rounded border-slate-700 justify-center items-end gap-2 inline-flex">
-                        <div className="text-slate-700 text-base">data</div>
+                    <div className="w-[150px] h-[40px] border rounded border-slate-700 justify-center items-end inline-flex">
+                        <div>
+                        <LocalizationProvider adapterLocale="pt-br" dateAdapter={AdapterDayjs}>
+                            <DatePicker slotProps={{ textField: { size: 'small' } }}/>
+                        </LocalizationProvider>
+                        </div>
                     </div>                        
                 </div>
 
