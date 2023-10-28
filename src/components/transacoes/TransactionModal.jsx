@@ -82,12 +82,11 @@ const CheckBoxOptions = ({showCheckBox}) => {
 
 const AccountOptions = ({showAccountOptions}) => {
 
+    const AccountOptionsList = ['pão', 'farinha', 'leite', 'feijão'];
+
     return (
         <div className={`absolute top-[60px] bg-white w-full rounded-md shadow-md z-10 ${showAccountOptions ? 'flex' : 'hidden'}`}>
-            pão
-            farinha
-            leite
-            feijão
+            
         </div>
     )
 }
