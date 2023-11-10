@@ -16,26 +16,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import 'dayjs/locale/pt-br';
-import { render } from 'react-dom'
 import dayjs from 'dayjs'
-
-
-// acertar espaçamento
-// checar se a fonte está certa
-
-
-
-// acertar formatação valor (olhar como é feito organizze)
-// os tamanhos estão certos?
-// ajustar formatação do modal todo
-
-// tem aquele botão ainda
-// integração botão - modal
-// fazer com que o modal desapareça quando o usuário clicar em qualquer lugar
-
-// da pra diminuir o tamanho do modal baseado no state do checkboxdropdown menu
-
-// transformar checkbox em componentes
 
 
 const hindTituloModal = Hind(
@@ -204,7 +185,7 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
                     </div>                                      
                 </div>                
 
-                <div className="w-[508px] mt-[24px] h-10 justify-between items-center inline-flex">
+                <div className="w-[508px] mt-[24px] h-[40px] justify-between items-center inline-flex">
                     <div className="w-[184px] h-[40px] px-[32px] py-[7px] bg-[#E8EEF4] rounded-[5px] justify-center items-center gap-2.5 flex cursor-pointer" onClick={() => changeModalIsOpen(false)}>
                         <button className={`text-secondary-500 text-base ${interTextButton.className}`}>Cancelar</button>
                     </div>
