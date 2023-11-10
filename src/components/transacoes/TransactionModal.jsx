@@ -52,15 +52,12 @@ const interTextButton = Inter(
     }
 )
 
-const robotoTextCheckboxOp = Roboto(
+const hindTextCheckboxOp = Hind(
     {
-        weight: '400',
+        weight: '500',
         subsets: ['latin']
     }
 )
-
-
-
 
 const AccountOptions = () => {
 
@@ -72,8 +69,7 @@ const AccountOptions = () => {
         setShowAccountOptions(!showAccountOptions)
     }
 
-    // teste
-    const accountOptionsList = ['pão', 'farinha', 'leite', 'feijão'];
+    const accountOptionsList = ['Bradesco', 'Itáu', 'PicPay'];
 
     const [selectAccountOption, setSelectAccountOption] = useState('Conta')
 
@@ -82,13 +78,12 @@ const AccountOptions = () => {
         accountOptionsDropDown()
     }
 
-    
     return (
         <>
             <div className="w-[220px] h-[40px]">                    
                 <div className="w-[220px] h-[48px] left-0 top-[7px] absolute justify-center items-center inline-flex">
                     <div onClick={accountOptionsDropDown} className="flex w-[268px] h-[48px] items-center justify-between border-2 rounded border-secondary-200 cursor-pointer p-[10px]">
-                        <span className={`text-base leading-normal ${selectAccountOption == 'Conta' ? 'text-[#a9a9a9]' : 'text-blue'}`}>{selectAccountOption}</span>
+                        <span className={`text-base font-normal ${hindTituloModal.className}  ${selectAccountOption == 'Conta' ? 'text-[#a9a9a9]' : 'text-secondary-500'}`}>{selectAccountOption}</span>
                         <ArrowDown2 size="20px"/>
                     </div>
                 </div>                        
@@ -98,7 +93,7 @@ const AccountOptions = () => {
                     {   
 
                         accountOptionsList.map((accountOptionsList, index) => (
-                            <li onClick={() => selectAccount(accountOptionsList)} key={index} className="cursor-pointer">{accountOptionsList}</li>
+                            <li onClick={() => selectAccount(accountOptionsList)} key={index} className={` ${hindTituloModal.className} cursor-pointer text-secondary-500`}>{accountOptionsList}</li>
                         ))
                     }
                 </ul>
@@ -117,10 +112,22 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
 
     const [date, setDate] = useState(dayjs())
 
-    console.log(date)
-
     const changeDate = (newDate) => {
         setDate(newDate)
+    }
+    
+    const dayOfTheWeek = (day) => {
+
+        switch(day) {
+            case 0: return 'o domingo';
+            case 1: return 'a segunda-feira';
+            case 2: return 'a terça-feira';
+            case 3: return 'a quarta-feira';
+            case 4: return 'a quinta-feira';
+            case 5: return 'a sexta-feira';
+            case 6: return 'o sábado';
+        }
+
     }
 
     if(!modalIsOpen) {
@@ -138,10 +145,10 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
 
                 <div className="w-[500px] mt-[36px] h-[56px] justify-between items-end inline-flex">
                     <div className="w-[240px] h-[40px] pl-2 border-2 rounded border-secondary-200">
-                        <input type="text" placeholder="Nome *" className="w-full h-full focus:outline-none" />
+                        <input type="text" placeholder="Nome *" className="w-full font-normal text-secondary-500 h-full focus:outline-none" />
                     </div>
                     <div className="w-[240px] h-[40px] p-2 border-2 rounded border-secondary-200">
-                        <input type="text" placeholder="R$ 0.00 *" className=" w-full text-slate-600 text-[16px] focus:outline-none" />
+                        <input type="text" placeholder="R$ 0.00 *" className=" w-full text-secondary-500 text-[16px] focus:outline-none" />
                     </div>
                 </div>
 
@@ -158,9 +165,7 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
                                         size: 'small' ,
                                         focused: false,
                                         color: 'secondary'
-
                                     } 
-                                
                                 }}/>
                             </LocalizationProvider>
                         </div>
@@ -177,35 +182,33 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
                     </div>
                     
                     <div className='flex relative justify-end items-end left-20'>
-
                         <AccountOptions/>      
-
                     </div>              
                 </div>
 
                 <div className={`w-[500px] h-[80px] flex flex-col justify-start gap-4 mt-[20px] mb-[32px] ${checkBoxDropDownOptions ? 'flex' : 'hidden'}`}>
                     <div className='checkbox-container'>
                         <input className='' type="checkbox" name="everyday"/>
-                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500`} />
-                        <span className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todos os dias</span>
+                        <label className={`${hindTextCheckboxOp.className} text-[16px] text-secondary-500`} />
+                        <span className={`${hindTextCheckboxOp.className} text-[16px] text-secondary-500 ml-5`}>Todos os dias</span>
                     </div>
                     <div className='checkbox-container'>
                         <input className='' type="checkbox" name="everyday"/>
-                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500`} />
-                        <span className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todas as semanas na quinta-feira</span>
+                        <label className={`${hindTextCheckboxOp.className} text-[16px] text-secondary-500`} />
+                        <span className={`${hindTextCheckboxOp.className} text-[16px] text-secondary-500 ml-5`}>Todas as semanas n{dayOfTheWeek(date.$W)} </span>
                     </div>                    
                     <div className='checkbox-container'>
                         <input className='' type="checkbox" name="everyday"/>
-                        <label className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500`} />
-                        <span className={`${robotoTextCheckboxOp.className} text-[14px] text-secondary-500 ml-5`}>Todos os meses no dia {date.$D}</span>
+                        <label className={`${hindTextCheckboxOp.className} text-[16px] text-secondary-500`} />
+                        <span className={`${hindTextCheckboxOp.className} text-[16px] text-secondary-500 ml-5`}>Todos os meses no dia {date.$D}</span>
                     </div>                                      
                 </div>                
 
-                <div className="w-[507px] mt-[24px] h-10 justify-between items-center inline-flex">
-                    <div className="w-[184px] h-10 px-8 py-[7px] bg-[#E8EEF4] rounded-[5px] justify-center items-center gap-2.5 flex cursor-pointer" onClick={() => changeModalIsOpen(false)}>
+                <div className="w-[508px] mt-[24px] h-10 justify-between items-center inline-flex">
+                    <div className="w-[184px] h-[40px] px-[32px] py-[7px] bg-[#E8EEF4] rounded-[5px] justify-center items-center gap-2.5 flex cursor-pointer" onClick={() => changeModalIsOpen(false)}>
                         <button className={`text-secondary-500 text-base ${interTextButton.className}`}>Cancelar</button>
                     </div>
-                    <div className="w-[184px] h-10 px-8 py-[7px] bg-primary-500 rounded-[5px] justify-center items-center gap-2.5 flex">
+                    <div className="w-[184px] h-[40px] px-[32px] py-[7px] bg-primary-500 rounded-[5px] justify-center items-center gap-2.5 flex">
                         <button className={`text-secondary-500 text-base ${interTextButton.className}`}>Adicionar</button>
                     </div>
                 </div>                
