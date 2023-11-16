@@ -126,10 +126,10 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
 
                 <div className="w-[500px] mt-[36px] h-[56px] justify-between items-end inline-flex">
                     <div className="w-[240px] h-[40px] pl-2 border-2 rounded border-secondary-200">
-                        <input type="text" placeholder="Nome *" className="w-full font-normal text-secondary-500 h-full focus:outline-none" />
+                        <input type="text" placeholder="Nome *" className="w-full text-secondary-500 h-full text-[16px] focus:outline-none" />
                     </div>
-                    <div className="w-[240px] h-[40px] p-2 border-2 rounded border-secondary-200">
-                        <input type="text" placeholder="R$ 0.00 *" className=" w-full text-secondary-500 text-[16px] focus:outline-none" />
+                    <div className="w-[240px] h-[40px] pl-2 border-2 rounded border-secondary-200">
+                        <input type="text" placeholder="R$ 0.00 *" className=" w-full text-secondary-500 text-[16px] h-full focus:outline-none" />
                     </div>
                 </div>
 
