@@ -17,7 +17,13 @@
  * car
  * hospital
  * lampon
+ * menuboard
+ * money3
+ * people
+ * personalcard
+ * shop
  * não achei
+ * 
  * 
  */
 
