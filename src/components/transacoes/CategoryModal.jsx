@@ -1,3 +1,5 @@
+'use client'
+
 //icone galeryadd
 //icone colorfilter
 
@@ -29,6 +31,8 @@
  * Smileys
  */
 
+import { useState } from 'react';
+
 import {
     GalleryAdd,
     Colorfilter,
@@ -39,29 +43,36 @@ import {
 
 const CategoryModal = () => {
 
-    const listaDeCores = ['#E12C00', '#EBE900', '#11D17E', '#004EEB', '#D422E1', '#EBE50B', 
-                            '#8DBE24', '#F76C4C', '#D12460', '#0095CD', '#006CC3', '#00E1BF']
+    const listaDeCores = ['bg-[#E12C00]', 'bg-[#EBE900]', 'bg-[#11D17E]', 'bg-[#004EEB]', 'bg-[#D422E1]', 'bg-[#EBE50B]', 
+                            'bg-[#8DBE24]', 'bg-[#F76C4C]', 'bg-[#D12460]', 'bg-[#0095CD]', 'bg-[#006CC3]', 'bg-[#00E1BF]'];
+
+    const [colorOptions, setColorOptions] = useState('false')
+
+    const showColorOptions = () => {
+        setColorOptions(!colorOptions)
+    }
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-25 flex justify-center items-center">
             
-            <div className="flex flex-col">
-                <div className="w-[480px] h-[120px] p-[20px] bg-white rounded-[15px] justify-center items-center inline-flex gap-[20px]">
 
-                    <div className="w-[300px] h-[48px] border-2 rounded border-secondary-200 flex justify-center items-center">
+            <div className={`w-[480px] bg-white rounded-[15px] ${colorOptions ? 'h-[220px]' : 'h-[120px]'} `}>
+
+                <div className=" h-[100px] flex justify-center items-center gap-[16px]">
+                    <div className="w-[300px] h-[48px] border-2 rounded border-secondary-200">
                         <input type="text" placeholder="Nome da Categoria" className="w-full text-secondary-500 h-full text-[16px] focus:outline-none" />
                     </div>                
                     <GalleryAdd color="#000334"/>
-                    <Colorfilter color="#000334"/>
-                    <ArrowRight color="#000334"/>        
+                    <div onClick={showColorOptions} className="cursor-pointer">
+                        <Colorfilter color="#000334"/>
+                    </div>
+                    <ArrowRight color="#000334"/>
                 </div>
-                <div className="bg-white">
-                    <div className="grid grid-cols-6 gap-[12px]">
+                <div className={`bg-white w-[480px] h-[100px] ${colorOptions ? '' : 'hidden'}`}>
+                    <div className="bg-black grid grid-cols-6 gap-[12px] place-items-center">
                         {
                             listaDeCores.map((lista, index) => (
-                                <div className={`rounded-full bg-[${lista}] w-[32px] h-[32px]`}>
-                                    
-                                </div>
+                                <div className={`rounded-full ${lista} w-[32px] h-[32px]`}></div>
                             ))
                         }
                     </div>
