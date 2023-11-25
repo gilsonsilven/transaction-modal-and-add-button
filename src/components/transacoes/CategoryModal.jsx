@@ -56,7 +56,7 @@ const CategoryModal = () => {
         }
     }
 
-    const listaDeIcones = ['<Colorfilter color="#000334"/>']
+    const listaDeIcones = [Truck]
 
     const iconHandler = () => {
         const key = 24
@@ -69,7 +69,6 @@ const CategoryModal = () => {
         if(colorOptions != false) {
             setColorOptions(false)
         }
-        
     }
 
     return (

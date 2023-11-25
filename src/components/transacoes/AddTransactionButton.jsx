@@ -7,7 +7,6 @@ import {
 import { useState } from 'react'
 import TransactionModal from './TransactionModal'
 
-
 const AddTransactionButton = () => {
 
     const [showModal, setShowModal] = useState(false)
@@ -21,7 +20,6 @@ const AddTransactionButton = () => {
             
             <TransactionModal modalIsOpen={showModal} changeModalIsOpen={setShowModal}/>
         </div>
-
     )
 }
 

@@ -1,14 +1,13 @@
 'use client'
 
-import { Hind, Inter, Roboto } from 'next/font/google'
+import { Hind, Inter} from 'next/font/google'
 import {
     ArrowDown2,
     ArrowUp2,
-    Calendar,
-    Stop,
-    TickSquare
+    Calendar
 } from 'iconsax-react'
 import { useState } from 'react'
+
 
 import './checkBoxStyle.css'
 
