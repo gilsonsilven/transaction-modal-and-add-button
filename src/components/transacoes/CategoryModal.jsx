@@ -1,10 +1,6 @@
 'use client'
 
-//icone galeryadd
-//icone colorfilter
-
-
-import { useState } from 'react';
+import { use, useState } from 'react';
 
 import {
     GalleryAdd,
@@ -36,8 +32,6 @@ import {
     Smileys,
 } from 'iconsax-react'
 
-// deixar colorfilter icon colorido?
-
 const CategoryModal = () => {
 
     const listaDeCores = ['bg-[#E12C00]', 'bg-[#EBE900]', 'bg-[#11D17E]', 'bg-[#004EEB]', 'bg-[#D422E1]', 'bg-[#EBE50B]', 
@@ -52,6 +46,40 @@ const CategoryModal = () => {
         }
     }
 
+    const [selectedColorOption, setSelectedColorOption] = useState(<Colorfilter color="#000334" size="28px"/>)
+
+    const selectColor = (color) => {
+        setSelectedColorOption(color)
+        showColorOptions()
+    }
+
+    const listaDeIcones = [
+        {name: 'Truck', icon: <Truck color="#000334" size="32px"/>},
+        {name: 'Coffee', icon: <Coffee color="#000334" size="32px"/>},
+        {name: 'Danger', icon: <Danger color="#000334" size="32px"/>},
+        {name: 'Devices', icon: <Devices color="#000334" size="32px"/>},
+        {name: 'Heart', icon: <Heart color="#000334" size="32px"/>},
+        {name: 'House', icon: <House color="#000334" size="32px"/>},
+        {name: 'Weight', icon: <Weight color="#000334" size="32px"/>},
+        {name: 'Cake', icon: <Cake color="#000334" size="32px"/>},
+        {name: 'Bank', icon: <Bank color="#000334" size="32px"/>},
+        {name: 'Box', icon: <Box color="#000334" size="32px"/>},
+        {name: 'Building', icon: <Building color="#000334" size="32px"/>},
+        {name: 'Bus', icon: <Bus color="#000334" size="32px"/>},
+        {name: 'Car', icon: <Car color="#000334" size="32px"/>},
+        {name: 'Hospital', icon: <Hospital color="#000334" size="32px"/>},
+        {name: 'LampOn', icon: <LampOn color="#000334" size="32px"/>},
+        {name: 'MenuBoard', icon: <MenuBoard color="#000334" size="32px"/>},
+        {name: 'Money3', icon: <Money3 color="#000334" size="32px"/>},
+        {name: 'People', icon: <People color="#000334" size="32px"/>},
+        {name: 'PersonalCard', icon: <Personalcard color="#000334" size="32px"/>},
+        {name: 'Shop', icon: <Shop color="#000334" size="32px"/>},
+        {name: 'StatusUp', icon: <StatusUp color="#000334" size="32px"/>},
+        {name: 'Teacher', icon: <Teacher color="#000334" size="32px"/>},
+        {name: 'TaskSquare', icon: <TaskSquare color="#000334" size="32px"/>},
+        {name: 'Smileys', icon: <Smileys color="#000334" size="32px"/>}
+    ]
+
     const [iconOptions, setIconOptions] = useState(false)
 
     const showIconOptions = () => {
@@ -59,6 +87,13 @@ const CategoryModal = () => {
         if(colorOptions != false) {
             setColorOptions(false)
         }
+    }
+
+    const [selectedIconOption, setSelectIconOption] = useState(<GalleryAdd color="#000334" size="28px"/>)
+
+    const selectIcon = (icon) => {
+        setSelectIconOption(icon)
+        showIconOptions()
     }
 
     return (
@@ -71,96 +106,34 @@ const CategoryModal = () => {
                         <input type="text" placeholder="Nome da Categoria" className="w-full text-secondary-500 h-full text-[16px] focus:outline-none" />
                     </div>
                     <div onClick={showIconOptions} className="cursor-pointer">                
-                        <GalleryAdd color="#000334"/>
+                        {selectedIconOption}
                     </div>
                     <div onClick={showColorOptions} className="cursor-pointer">
-                        <Colorfilter color="#000334"/>
+                        {selectedColorOption}
                     </div>
-                    <ArrowRight color="#000334"/>
+                    <div className="cursor-pointer">
+                        <ArrowRight color="#000334"/>
+                    </div>
                 </div>
                 <div className={`bg-white w-[480px] h-[80px] ${colorOptions ? '' : 'hidden'}`}>
                     <div className="bg-white grid grid-cols-6 gap-[12px] place-items-center">
                         {
-                            listaDeCores.map((lista, index) => (
-                                <div className={`cursor-pointer rounded-full ${lista} w-[32px] h-[32px]`} />
+                            listaDeCores.map((lista) => (
+                                <div onClick={() => selectColor(<div className={`cursor-pointer rounded-full ${lista} w-[32px] h-[32px]`}/>)} className={`cursor-pointer rounded-full ${lista} w-[32px] h-[32px]`} />
                             ))
                         }
                     </div>
                 </div>
                 <div className={` bg-white w-[480px] h-[140px] ${iconOptions ? '' : 'hidden'}`}>
                     <div className="grid grid-cols-6 gap-[10px] place-items-center">
-                        <div className="cursor-pointer">
-                            <Coffee color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Truck color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Danger color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Devices color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Heart color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <House color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Weight color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Cake color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Bank color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Box color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Building color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Bus color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Car color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Hospital color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <LampOn color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <MenuBoard color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Money3 color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <People color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Personalcard color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Shop color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <StatusUp color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Teacher color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <TaskSquare color="#000334" size="32px"/>
-                        </div>
-                        <div className="cursor-pointer">
-                            <Smileys color="#000334" size="32px"/>
-                        </div>
+                        {
+                            listaDeIcones.map((lista) => (
+                            <div onClick={() => selectIcon(lista.icon)} className="cursor-pointer">
+                                {lista.icon}
+                            </div>
+
+                            ))
+                        }    
                     </div>
                 </div>
             </div>
