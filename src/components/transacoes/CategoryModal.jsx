@@ -3,33 +3,6 @@
 //icone galeryadd
 //icone colorfilter
 
-// opções icones para o user escolher
-/**
- * coffee 
- * danger
- * devices
- * heart
- * house
- * weight
- * cake
- * bank
- * box
- * building
- * bus
- * car
- * hospital
- * lampon
- * menuboard
- * money3
- * people
- * personalcard
- * shop
- * statusup
- * Teacher
- * TaskSquare
- * Truck
- * Smileys
- */
 
 import { useState } from 'react';
 
@@ -50,17 +23,17 @@ import {
     Bus,
     Car,
     Hospital,
-    Lampon,
+    LampOn,
     MenuBoard,
     Money3,
     People,
-    PersonalCard,
+    Personalcard,
     Shop,
     StatusUp,
     Teacher,
     TaskSquare,
     Truck,
-    Smilyes
+    Smileys,
 } from 'iconsax-react'
 
 // deixar colorfilter icon colorido?
@@ -79,8 +52,6 @@ const CategoryModal = () => {
         }
     }
 
-    const listaDeIcones = ['Truck', 'Coffee']
-
     const [iconOptions, setIconOptions] = useState(false)
 
     const showIconOptions = () => {
@@ -93,7 +64,7 @@ const CategoryModal = () => {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-25 flex justify-center items-center">
 
-            <div className={`w-[480px] bg-white rounded-[15px] ${colorOptions ? 'h-[200px]' : 'h-[100px]'}  ${iconOptions ? 'h-[200px]' : 'h-[100px]'}`}>
+            <div className={`w-[480px] bg-white rounded-[15px] ${colorOptions ? 'h-[200px]' : 'h-[100px]'}  ${iconOptions ? 'h-[280px]' : 'h-[100px]'}`}>
 
                 <div className=" h-[100px] flex justify-center items-center gap-[16px]">
                     <div className="w-[300px] h-[48px] pl-2 border-2 rounded border-secondary-200">
@@ -111,84 +82,84 @@ const CategoryModal = () => {
                     <div className="bg-white grid grid-cols-6 gap-[12px] place-items-center">
                         {
                             listaDeCores.map((lista, index) => (
-                                <div className={`rounded-full ${lista} w-[32px] h-[32px]`} />
+                                <div className={`cursor-pointer rounded-full ${lista} w-[32px] h-[32px]`} />
                             ))
                         }
                     </div>
                 </div>
-                <div className={` bg-white w-[480px] h-[380px] ${iconOptions ? '' : 'hidden'}`}>
-                    <div className="grid grid-cols-6 gap-[12px] place-items-center">
-                        <div>
-                            <Coffee />
+                <div className={` bg-white w-[480px] h-[140px] ${iconOptions ? '' : 'hidden'}`}>
+                    <div className="grid grid-cols-6 gap-[10px] place-items-center">
+                        <div className="cursor-pointer">
+                            <Coffee color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            <Truck />
+                        <div className="cursor-pointer">
+                            <Truck color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Danger color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Devices color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Heart color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <House color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Weight color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Cake color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Bank color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Box color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Building color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Bus color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Car color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Hospital color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <LampOn color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <MenuBoard color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Money3 color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <People color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <Personalcard color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Shop color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <StatusUp color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Teacher color="#000334" size="32px"/>
                         </div>
-                        <div>
-
+                        <div className="cursor-pointer">
+                            <TaskSquare color="#000334" size="32px"/>
                         </div>
-                        <div>
-                            
+                        <div className="cursor-pointer">
+                            <Smileys color="#000334" size="32px"/>
                         </div>
                     </div>
                 </div>
