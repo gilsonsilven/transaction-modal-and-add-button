@@ -6,7 +6,7 @@ import {
     ArrowUp2,
     Calendar
 } from 'iconsax-react'
-import { useState } from 'react'
+import { use, useState } from 'react'
 
 
 import './checkBoxStyle.css'
@@ -84,6 +84,17 @@ const AccountOptions = () => {
 
 const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
 
+    
+    const [transactionId, setTransactionId] = useState("Teste id Transação")
+    const [bankAccountId, setbankAccountId] = useState("Teste id conta banco")
+    const [userId, setUserId] = useState("user teste")
+    const [name, setName] = useState("Teste")
+    const [valueCents, setValueCents] = useState("aaa")
+    const [categories, setCategories] = useState(["a"])
+    const [dateTransa, setDateTransa] = useState("dia 10")
+
+
+
     const [checkBoxDropDownOptions, setCheckBoxDropDownOptions] = useState(false)
 
     const checkBoxDropDown = () => {
@@ -112,6 +123,18 @@ const TransactionModal = ({modalIsOpen, changeModalIsOpen}) => {
 
     if(!modalIsOpen) {
         return null;
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        
+        const newTransac = {
+            
+            name: event.target.name.value,
+            email: event.target.email.value,
+            pass: event.target.email.value,
+            
+        }        
     }
 
     return ( 
